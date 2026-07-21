@@ -42,7 +42,7 @@ on:
         type: boolean
 
 permissions:
-  contents: read
+  contents: write
   actions: write
 
 jobs:
@@ -138,6 +138,12 @@ jobs:
     if: always()
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - name: Download All Artifacts
         uses: actions/download-artifact@v4
         with:
@@ -172,6 +178,45 @@ jobs:
         with:
           name: Launcher-All
           path: release/
+
+      - name: Create GitHub Release
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -eu
+          VERSION="v$(date -u +%-Y.%-m.%-d).${GITHUB_RUN_NUMBER}"
+
+          if [ ! -d release ] || [ -z "$(ls -A release 2>/dev/null || true)" ]; then
+            echo "No release binaries — skip GitHub Release"
+            exit 0
+          fi
+
+          zip -r "Gml.Launcher-${VERSION}.zip" release
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # Tag current commit so Backend can list/clone this version
+          if git rev-parse -q --verify "refs/tags/${VERSION}" >/dev/null; then
+            echo "Tag ${VERSION} already exists"
+          else
+            git tag -a "${VERSION}" -m "Launcher ${VERSION}"
+            git push origin "refs/tags/${VERSION}"
+          fi
+
+          if gh release view "${VERSION}" >/dev/null 2>&1; then
+            echo "Release ${VERSION} already exists — uploading asset"
+            gh release upload "${VERSION}" "Gml.Launcher-${VERSION}.zip" --clobber
+          else
+            gh release create "${VERSION}" "Gml.Launcher-${VERSION}.zip" \
+              --title "${VERSION}" \
+              --notes "Automated launcher build \`${VERSION}\` from master.
+
+          Source for Gml.Backend admin panel:
+          - repo: \`Nik497926/Gml.Launcher\`
+          - tag: \`${VERSION}\` (or \`master\`)"
+          fi
 
       - name: Cleanup Intermediate Artifacts
         uses: actions/github-script@v7
