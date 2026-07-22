@@ -345,4 +345,28 @@
   <data name="ProfileSuccessRemoved" xml:space="preserve">
     <value>配置文件成功删除</value>
   </data>
+  <data name="Balance" xml:space="preserve">
+    <value>余额</value>
+  </data>
+  <data name="PlayedColumn" xml:space="preserve">
+    <value>时长</value>
+  </data>
+  <data name="Statistics" xml:space="preserve">
+    <value>统计</value>
+  </data>
+  <data name="PlayedTime" xml:space="preserve">
+    <value>游戏时长</value>
+  </data>
+  <data name="ProfileStatsEmpty" xml:space="preserve">
+    <value>暂无服务器数据。</value>
+  </data>
+  <data name="DonateGroupColumn" xml:space="preserve">
+    <value>捐赠组</value>
+  </data>
+  <data name="ServerColumn" xml:space="preserve">
+    <value>服务器</value>
+  </data>
+  <data name="ProfileStatsLoadError" xml:space="preserve">
+    <value>无法加载统计数据。</value>
+  </data>
 </root>

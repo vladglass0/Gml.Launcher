@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!--
     Microsoft ResX Schema
@@ -338,5 +338,29 @@ To exit offline mode, make sure that the server is available, and then restart t
   </data>
   <data name="ProfileSuccessRemoved" xml:space="preserve">
     <value>ProfileSuccessRemoved</value>
+  </data>
+  <data name="Balance" xml:space="preserve">
+    <value>Баланс</value>
+  </data>
+  <data name="PlayedColumn" xml:space="preserve">
+    <value>Наиграно</value>
+  </data>
+  <data name="Statistics" xml:space="preserve">
+    <value>Статистика</value>
+  </data>
+  <data name="PlayedTime" xml:space="preserve">
+    <value>Наиграно</value>
+  </data>
+  <data name="ProfileStatsEmpty" xml:space="preserve">
+    <value>Нет данных по серверам.</value>
+  </data>
+  <data name="DonateGroupColumn" xml:space="preserve">
+    <value>Донат группа</value>
+  </data>
+  <data name="ServerColumn" xml:space="preserve">
+    <value>Сервер</value>
+  </data>
+  <data name="ProfileStatsLoadError" xml:space="preserve">
+    <value>Не удалось загрузить статистику.</value>
   </data>
 </root>

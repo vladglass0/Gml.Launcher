@@ -53,4 +53,12 @@ public class SystemConstants
     public const string NewsOffline = "NewsOffline";
     public const string NewsEmptyTitle = "NewsEmptyTitle";
     public const string NewsEmptyContent = "NewsEmptyContent";
+    public const string PlayedTime = "PlayedTime";
+    public const string Balance = "Balance";
+    public const string Statistics = "Statistics";
+    public const string ServerColumn = "ServerColumn";
+    public const string DonateGroupColumn = "DonateGroupColumn";
+    public const string PlayedColumn = "PlayedColumn";
+    public const string ProfileStatsEmpty = "ProfileStatsEmpty";
+    public const string ProfileStatsLoadError = "ProfileStatsLoadError";
 }

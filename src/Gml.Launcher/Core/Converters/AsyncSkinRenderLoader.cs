@@ -52,15 +52,12 @@ public class AsyncSkinRenderLoader
 
         try
         {
-            if (string.IsNullOrEmpty(url))
+            if (string.IsNullOrEmpty(url) || !ValidateUrl(url))
             {
-                PendingOperations.Remove(sender, out _);
-                sender.Source = null;
+                PendingOperations.TryRemove(sender, out _);
+                await Dispatcher.UIThread.InvokeAsync(() => sender.Source = null);
                 return;
             }
-
-            if (string.IsNullOrEmpty(url) || !ValidateUrl(url))
-                throw new Exception($"User skin not found for user. Url: {url}");
 
             using var client = new HttpClient();
             client.DefaultRequestHeaders.Clear();
@@ -69,11 +66,14 @@ public class AsyncSkinRenderLoader
             var response = await client.GetByteArrayAsync(url, cts.Token);
             using var stream = new MemoryStream(response);
 
-            var bitmap = new Bitmap(new MemoryStream(SkinViewer.GetFront(stream, 128)));
+            var frontBytes = SkinViewer.GetFront(stream, 128);
+            using var frontStream = new MemoryStream(frontBytes);
+            var bitmap = new Bitmap(frontStream);
 
-            Dispatcher.UIThread.Invoke(() =>
+            await Dispatcher.UIThread.InvokeAsync(() =>
             {
-                if (!cts.Token.IsCancellationRequested) sender.Source = bitmap;
+                if (!cts.Token.IsCancellationRequested)
+                    sender.Source = bitmap;
             });
         }
         catch (HttpRequestException exception)
@@ -93,7 +93,7 @@ public class AsyncSkinRenderLoader
         }
         finally
         {
-            PendingOperations.Remove(sender, out _);
+            PendingOperations.TryRemove(sender, out _);
             SetIsLoading(sender, false);
         }
     }

@@ -339,4 +339,28 @@ To exit offline mode, make sure that the server is available, and then restart t
   <data name="ProfileSuccessRemoved" xml:space="preserve">
     <value>Profile success removed</value>
   </data>
+  <data name="Balance" xml:space="preserve">
+    <value>Balance</value>
+  </data>
+  <data name="PlayedColumn" xml:space="preserve">
+    <value>Played</value>
+  </data>
+  <data name="Statistics" xml:space="preserve">
+    <value>Statistics</value>
+  </data>
+  <data name="PlayedTime" xml:space="preserve">
+    <value>Played</value>
+  </data>
+  <data name="ProfileStatsEmpty" xml:space="preserve">
+    <value>No server stats yet.</value>
+  </data>
+  <data name="DonateGroupColumn" xml:space="preserve">
+    <value>Donate group</value>
+  </data>
+  <data name="ServerColumn" xml:space="preserve">
+    <value>Server</value>
+  </data>
+  <data name="ProfileStatsLoadError" xml:space="preserve">
+    <value>Failed to load statistics.</value>
+  </data>
 </root>

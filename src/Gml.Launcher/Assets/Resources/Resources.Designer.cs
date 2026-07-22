@@ -716,5 +716,53 @@ namespace Gml.Launcher.Assets.Resources {
                 return ResourceManager.GetString("ProfileSuccessRemoved", resourceCulture);
             }
         }
+
+        public static string PlayedTime {
+            get {
+                return ResourceManager.GetString("PlayedTime", resourceCulture);
+            }
+        }
+
+        public static string Balance {
+            get {
+                return ResourceManager.GetString("Balance", resourceCulture);
+            }
+        }
+
+        public static string Statistics {
+            get {
+                return ResourceManager.GetString("Statistics", resourceCulture);
+            }
+        }
+
+        public static string ServerColumn {
+            get {
+                return ResourceManager.GetString("ServerColumn", resourceCulture);
+            }
+        }
+
+        public static string DonateGroupColumn {
+            get {
+                return ResourceManager.GetString("DonateGroupColumn", resourceCulture);
+            }
+        }
+
+        public static string PlayedColumn {
+            get {
+                return ResourceManager.GetString("PlayedColumn", resourceCulture);
+            }
+        }
+
+        public static string ProfileStatsEmpty {
+            get {
+                return ResourceManager.GetString("ProfileStatsEmpty", resourceCulture);
+            }
+        }
+
+        public static string ProfileStatsLoadError {
+            get {
+                return ResourceManager.GetString("ProfileStatsLoadError", resourceCulture);
+            }
+        }
     }
 }
