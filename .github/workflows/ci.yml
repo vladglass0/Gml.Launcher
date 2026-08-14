@@ -139,7 +139,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        if: |
+  (github.event_name == 'push' && (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main')) ||
+  github.event_name == 'workflow_dispatch'
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
@@ -180,7 +182,9 @@ jobs:
           path: release/
 
       - name: Create GitHub Release
-        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        if: |
+  (github.event_name == 'push' && (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main')) ||
+  github.event_name == 'workflow_dispatch'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
