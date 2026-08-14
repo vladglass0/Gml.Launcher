@@ -214,7 +214,7 @@ jobs:
               --notes "Automated launcher build \`${VERSION}\` from master.
 
           Source for Gml.Backend admin panel:
-          - repo: \`Nik497926/Gml.Launcher\`
+          - repo: \`vladglass0/Gml.Launcher\`
           - tag: \`${VERSION}\` (or \`master\`)"
           fi
 

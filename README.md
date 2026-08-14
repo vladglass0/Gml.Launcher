@@ -22,7 +22,7 @@ Before installing the GamerVII Launcher, ensure you have the following prerequis
 1. **Clone the Repository:**
    Open a terminal and clone the repository using Git with the `--recursive` option:
    ```bash
-   git clone --recursive https://github.com/Nik497926/Gml.Launcher.git
+   git clone --recursive https://github.com/vladglass0/Gml.Launcher.git
    cd Gml.Launcher
    ```
 

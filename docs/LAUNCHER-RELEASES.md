@@ -4,15 +4,15 @@
 
 Backend lists/clones from:
 
-- Owner: `Nik497926`
+- Owner: `vladglass0`
 - Repo: `Gml.Launcher`
-- Clone: `https://github.com/Nik497926/Gml.Launcher.git`
+- Clone: `https://github.com/vladglass0/Gml.Launcher.git`
 
 Configured in Api: `LauncherGitHubDefaults`.
 
 ## Auto publish
 
-On every push to `master` in [Gml.Launcher](https://github.com/Nik497926/Gml.Launcher):
+On every push to `master` in [Gml.Launcher](https://github.com/vladglass0/Gml.Launcher):
 
 1. CI builds Windows / Linux / OSX binaries (`ci.yml`).
 2. Creates git tag `vYYYY.M.D.<run>` + GitHub Release with zip.
